@@ -1,0 +1,308 @@
+** path를 Request로 보낼 때 '/'로 시작해서 '/'로 끝나야 함. ex) /image/wallpaper/
+** storage 관련 기능을 요청할 때 로그인된 상태여야 함
+** 파일 검색은 1. path만 입력 2. 파일명에 포함된 키워드만 입력 3. 둘 다 입력
+** 폴더 검색은 검색한 키워드가 포함된 모든 폴더의 절대 경로를 반환함
+
+
+1. 로그인
+POST: /login
+
+Request format
+{
+    "username": "",
+    "password": ""
+}
+
+Response Example
+{
+    "Status": "Success",
+    "Username": "admin"
+}
+
+
+2. 로그아웃
+POST: /logout
+
+Request format
+{
+}
+
+Response Example
+{
+    "Status": "Success",
+    "Username": "admin"
+}
+
+
+3. 회원가입
+POST: /user
+
+Request format
+{
+    "username": "",
+    "password": "",
+    "email": ""
+}
+
+Response Example
+{
+    "Status": "Success",
+    "Username": "admin"
+}
+
+
+4. 사용자 리스트
+GET: /user
+
+Response Example
+[
+    {
+        "id": 20,
+        "username": "admin",
+        "password": "pbkdf2_sha256$320000$RriAH9J7iPo9gTGmOMWrNu$M8/eiF41N3JbfuecjCxNXYr7v25Lyo4rqFKBypFHuUA=",
+        "email": "jsk3875@naver.com"
+    },
+    {
+        "id": 21,
+        "username": "admin2",
+        "password": "pbkdf2_sha256$320000$1Sl7xWbAmQl5AYRkt9o8ch$E6/162aNGU6TQKf7ZSnQtQtgP8c4v8ovdFEOQJCvQBk=",
+        "email": "jsk3875@naver.com"
+    }
+]
+
+
+5. 사용자 디테일
+GET: /user/<int:id>
+
+Response Example
+{
+    "id": 20,
+    "username": "admin",
+    "password": "pbkdf2_sha256$320000$RriAH9J7iPo9gTGmOMWrNu$M8/eiF41N3JbfuecjCxNXYr7v25Lyo4rqFKBypFHuUA=",
+    "email": "jsk3875@naver.com"
+}
+
+
+6. 회원 탈퇴
+DELETE: /user/<int:id>
+
+Response Example
+{
+}
+
+
+7. 파일 리스트
+GET: /files
+
+Response Example
+{
+    "file_list": [
+        {
+            "id": 52,
+            "title": "ssh",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/b83a98d1-7056-447c-acd5-549c17ad8b38",
+            "owner": 20,
+            "key": "b83a98d1-7056-447c-acd5-549c17ad8b38",
+            "upload_date": "2022-06-05T01:00:10.084229",
+            "file_path": "/test/"
+        },
+        {
+            "id": 53,
+            "title": "forestWatch.jpg",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/0b9fac69-fb44-421a-bd9b-42758bd40b3d",
+            "owner": 20,
+            "key": "0b9fac69-fb44-421a-bd9b-42758bd40b3d",
+            "upload_date": "2022-06-05T01:00:46.625080",
+            "file_path": "/image/wallpaper/"
+        },
+        {
+            "id": 54,
+            "title": "forestWatch.jpg",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
+            "owner": 20,
+            "key": "6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
+            "upload_date": "2022-06-05T01:08:24.487904",
+            "file_path": "/image/wallpaper/"
+        },
+        {
+            "id": 55,
+            "title": "lambda.PNG",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/c40fe5f5-628e-4014-85f6-ffb444ea3ff5",
+            "owner": 20,
+            "key": "c40fe5f5-628e-4014-85f6-ffb444ea3ff5",
+            "upload_date": "2022-06-05T01:10:24.728214",
+            "file_path": "/image/wallpaper/"
+        }
+    ]
+}
+
+
+8. 파일 업로드
+POST: /files
+
+Request format
+{
+    "files": null,
+    "file_path": ""
+}
+
+Response Example
+{
+    "uploaded_file_list": [
+        {
+            "id": 56,
+            "title": "lambda.PNG",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/6cb698dd-c6ef-475e-a0d4-04ab7e2b31d5",
+            "owner": 20,
+            "key": "6cb698dd-c6ef-475e-a0d4-04ab7e2b31d5",
+            "upload_date": "2022-06-05T01:36:07.588476",
+            "file_path": "/"
+        }
+    ]
+}
+
+
+9. 파일 디테일
+GET: /files/<int:id>
+
+Response Example
+{
+    "id": 52,
+    "title": "ssh",
+    "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/b83a98d1-7056-447c-acd5-549c17ad8b38",
+    "owner": 20,
+    "key": "b83a98d1-7056-447c-acd5-549c17ad8b38",
+    "upload_date": "2022-06-05T01:00:10.084229",
+    "file_path": "/test/"
+}
+
+
+10. 파일 삭제
+DELETE: /files/<int:id>
+
+Response Example
+{
+}
+
+
+11. 파일 공유 URL 생성
+GET: /files/<int:id>/share/<int:duration>
+
+Response Example
+{
+    "url": "https://dropbox-s3-jeon.s3.amazonaws.com/0b9fac69-fb44-421a-bd9b-42758bd40b3d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZ44HKRAFEBVGCEKX%2F20220604%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20220604T164218Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=596d0094cdf812a57e45c93b5b8fbd9d9e4cfcd619434c78bd5c260f2ecdddd4",
+    "expireDatetime": "2022-06-05T01:43:18.015145"
+}
+
+
+12. 폴더 구조 조회
+GET: /folders
+
+Response Example
+{
+    "id": 7,
+    "owner": 20,
+    "tree": {
+        "root": {
+            "test": {},
+            "image": {
+                "wallpaper": {}
+            }
+        }
+    }
+}
+
+
+13. 폴더 생성
+POST: /folders
+
+Request format
+{
+    "file_path": "",
+    "name": ""
+}
+
+Response Example
+{
+    "id": 7,
+    "owner": 20,
+    "tree": {
+        "root": {
+            "test": {},
+            "image": {
+                "wallpaper": {}
+            },
+            "video": {}
+        }
+    }
+}
+
+
+14. 폴더 삭제
+POST: /deletefolders
+
+Request format
+{
+    "file_path": ""
+}
+
+Response Example
+{
+    "id": 7,
+    "owner": 20,
+    "tree": {
+        "root": {
+            "image": {
+                "wallpaper": {}
+            },
+            "video": {}
+        }
+    }
+}
+
+
+15. 파일 검색
+POST: /search
+
+Request format
+{
+    "file_path": "",
+    "name": ""
+}
+
+Response Example
+{
+    "result": [
+        {
+            "id": 53,
+            "title": "forestWatch.jpg",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/0b9fac69-fb44-421a-bd9b-42758bd40b3d",
+            "owner": 20,
+            "key": "0b9fac69-fb44-421a-bd9b-42758bd40b3d",
+            "upload_date": "2022-06-05T01:00:46.625080",
+            "file_path": "/image/wallpaper/"
+        },
+        {
+            "id": 54,
+            "title": "forestWatch.jpg",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
+            "owner": 20,
+            "key": "6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
+            "upload_date": "2022-06-05T01:08:24.487904",
+            "file_path": "/image/wallpaper/"
+        }
+    ]
+}
+
+
+16. 폴더 검색
+GET: /folders/search/<str:keyword>
+
+Response Example
+{
+    "result": [
+        "/image/videocapture/",
+        "/video/"
+    ]
+}
+
