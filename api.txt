@@ -306,3 +306,18 @@ Response Example
     ]
 }
 
+
+17. 경로 내 폴더 검색
+POST: /searchfolderpath
+
+Request format
+{
+    "file_path": ""
+}
+
+Response Example
+[
+    "wallpaper",
+    "videocapture"
+]
+
