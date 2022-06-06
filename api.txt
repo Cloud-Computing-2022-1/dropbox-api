@@ -328,3 +328,29 @@ Response Example
         }
     ]
 }
+
+19. 동영상 일괄 수정 (FileInfo 모델 필드 중 title 필드 변경)
+PATCH: /batch/
+
+Request format
+{
+    "file_ids": [57],
+    "search": ".JPG",
+    "replace": ".jpg",
+}
+
+Response format
+{
+    "result": [
+        {
+            "id": 57,
+            "title": "forestWatch.jpg",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/d6f5f152-08be-4bdb-aa07-a888be8aa13a",
+            "owner": 20,
+            "key": "d6f5f152-08be-4bdb-aa07-a888be8aa13a",
+            "upload_date": "2022-06-06T22:29:59.692019",
+            "file_path": "/",
+            "script": null
+        }
+    ]
+}
