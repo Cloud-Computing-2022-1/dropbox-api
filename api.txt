@@ -98,31 +98,14 @@ Response Example
 {
     "file_list": [
         {
-            "id": 52,
-            "title": "ssh",
-            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/b83a98d1-7056-447c-acd5-549c17ad8b38",
-            "owner": 20,
-            "key": "b83a98d1-7056-447c-acd5-549c17ad8b38",
-            "upload_date": "2022-06-05T01:00:10.084229",
-            "file_path": "/test/"
-        },
-        {
-            "id": 53,
-            "title": "forestWatch.jpg",
-            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/0b9fac69-fb44-421a-bd9b-42758bd40b3d",
-            "owner": 20,
-            "key": "0b9fac69-fb44-421a-bd9b-42758bd40b3d",
-            "upload_date": "2022-06-05T01:00:46.625080",
-            "file_path": "/image/wallpaper/"
-        },
-        {
             "id": 54,
-            "title": "forestWatch.jpg",
+            "title": "test.mp4",
             "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
             "owner": 20,
             "key": "6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
             "upload_date": "2022-06-05T01:08:24.487904",
-            "file_path": "/image/wallpaper/"
+            "file_path": "/image/wallpaper/",
+            "script": "이거 옷 샀는데 어때 우와 되게 촌스러운 데 돈 주고 산 거야 요즘 레트로 감성 알지 나도 리바이스 청바지 아 잘못 말했다 나팔바지 노래 틀어 주면 안 돼 궁금해 아는형님 안테 전화해 봐야겠다 토요일 박물관에서 불러 레트로 펑키 노래 틀어 주면 안의 블루를 틀어줘하이엘지 남은 일주일 더 있다 먹으라 그랬는데 일년하고도 일주일만에 발견 암표 파는 거 같은데 알려 줘야 눈물나 동의보감 가져 와야지 알지 않으면 안은 여기까지 먹어 허허허허 허허나는 납골당 말고 꼭 산에 너도 몰라 요즘 고인돌 길가던 아울렛 k2"
         },
         {
             "id": 55,
@@ -131,7 +114,18 @@ Response Example
             "owner": 20,
             "key": "c40fe5f5-628e-4014-85f6-ffb444ea3ff5",
             "upload_date": "2022-06-05T01:10:24.728214",
-            "file_path": "/image/wallpaper/"
+            "file_path": "/image/wallpaper/",
+            "script": null
+        },
+        {
+            "id": 56,
+            "title": "lambda.PNG",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/6cb698dd-c6ef-475e-a0d4-04ab7e2b31d5",
+            "owner": 20,
+            "key": "6cb698dd-c6ef-475e-a0d4-04ab7e2b31d5",
+            "upload_date": "2022-06-05T01:36:07.588476",
+            "file_path": "/",
+            "script": null
         }
     ]
 }
@@ -150,13 +144,14 @@ Response Example
 {
     "uploaded_file_list": [
         {
-            "id": 56,
-            "title": "lambda.PNG",
-            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/6cb698dd-c6ef-475e-a0d4-04ab7e2b31d5",
+            "id": 57,
+            "title": "forestWatch.jpg",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/d6f5f152-08be-4bdb-aa07-a888be8aa13a",
             "owner": 20,
-            "key": "6cb698dd-c6ef-475e-a0d4-04ab7e2b31d5",
-            "upload_date": "2022-06-05T01:36:07.588476",
-            "file_path": "/"
+            "key": "d6f5f152-08be-4bdb-aa07-a888be8aa13a",
+            "upload_date": "2022-06-06T22:29:59.692019",
+            "file_path": "/",
+            "script": null
         }
     ]
 }
@@ -167,13 +162,14 @@ GET: /files/<int:id>
 
 Response Example
 {
-    "id": 52,
-    "title": "ssh",
-    "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/b83a98d1-7056-447c-acd5-549c17ad8b38",
+    "id": 53,
+    "title": "forestWatch.jpg",
+    "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/0b9fac69-fb44-421a-bd9b-42758bd40b3d",
     "owner": 20,
-    "key": "b83a98d1-7056-447c-acd5-549c17ad8b38",
-    "upload_date": "2022-06-05T01:00:10.084229",
-    "file_path": "/test/"
+    "key": "0b9fac69-fb44-421a-bd9b-42758bd40b3d",
+    "upload_date": "2022-06-05T01:00:46.625080",
+    "file_path": "/image/wallpaper/",
+    "script": null
 }
 
 
@@ -274,22 +270,14 @@ Response Example
 {
     "result": [
         {
-            "id": 53,
+            "id": 57,
             "title": "forestWatch.jpg",
-            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/0b9fac69-fb44-421a-bd9b-42758bd40b3d",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/d6f5f152-08be-4bdb-aa07-a888be8aa13a",
             "owner": 20,
-            "key": "0b9fac69-fb44-421a-bd9b-42758bd40b3d",
-            "upload_date": "2022-06-05T01:00:46.625080",
-            "file_path": "/image/wallpaper/"
-        },
-        {
-            "id": 54,
-            "title": "forestWatch.jpg",
-            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
-            "owner": 20,
-            "key": "6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
-            "upload_date": "2022-06-05T01:08:24.487904",
-            "file_path": "/image/wallpaper/"
+            "key": "d6f5f152-08be-4bdb-aa07-a888be8aa13a",
+            "upload_date": "2022-06-06T22:29:59.692019",
+            "file_path": "/",
+            "script": null
         }
     ]
 }
@@ -321,3 +309,22 @@ Response Example
     "videocapture"
 ]
 
+
+18. 영상 스크립트 검색
+GET: /searchscript/<str:keyword>
+
+Response Example
+{
+    "result": [
+        {
+            "id": 54,
+            "title": "test.mp4",
+            "url": "https://dropbox-s3-jeon.s3.ap-northeast-2.amazonaws.com/6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
+            "owner": 20,
+            "key": "6beaa8e4-f3c7-466b-a6d0-eae0f13d40f3",
+            "upload_date": "2022-06-05T01:08:24.487904",
+            "file_path": "/image/wallpaper/",
+            "script": "이거 옷 샀는데 어때 우와 되게 촌스러운 데 돈 주고 산 거야 요즘 레트로 감성 알지 나도 리바이스 청바지 아 잘못 말했다 나팔바지 노래 틀어 주면 안 돼 궁금해 아는형님 안테 전화해 봐야겠다 토요일 박물관에서 불러 레트로 펑키 노래 틀어 주면 안의 블루를 틀어줘하이엘지 남은 일주일 더 있다 먹으라 그랬는데 일년하고도 일주일만에 발견 암표 파는 거 같은데 알려 줘야 눈물나 동의보감 가져 와야지 알지 않으면 안은 여기까지 먹어 허허허허 허허나는 납골당 말고 꼭 산에 너도 몰라 요즘 고인돌 길가던 아울렛 k2"
+        }
+    ]
+}
